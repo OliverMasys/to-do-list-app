@@ -13,10 +13,11 @@ document.getElementById('addTaskForm').addEventListener('submit', function (even
 
     // Add code to add a new task
     // TODO: retrieve the task title from the form input field
+    
 
     if (taskTitle.trim() !== '') {
         // TODO: Add new task. HINT: Pass the task title from the form to the addTask() method.
-
+        addTask(taskTitle); 
         // TODO: Clear the task title form input field
 
     }
