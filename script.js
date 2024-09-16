@@ -13,13 +13,13 @@ document.getElementById('addTaskForm').addEventListener('submit', function (even
 
     // Add code to add a new task
     // TODO: retrieve the task title from the form input field
-    
+    const taskTitle = documents.getElementById('taskTitle').value;
 
     if (taskTitle.trim() !== '') {
         // TODO: Add new task. HINT: Pass the task title from the form to the addTask() method.
         addTask(taskTitle); 
         // TODO: Clear the task title form input field
-
+        document.getElementById('taskTitle').value = '';
     }
 });
 
@@ -31,9 +31,9 @@ function addTask(title) {
         completed: false
     };
     // TODO: push the new task title to teh tasks array
-
+    tasks.push(newTask);
     // TODO: Call the renderTasks() method to update the app
-
+    renderTasks();
 }
 
 // Function: Edit Task
@@ -42,7 +42,7 @@ function editTask(id, newTitle) {
     if (task) {
         task.title = newTitle;
     // TODO: Call the renderTasks() method to update the app
-
+    renderTasks();
     }
 }
 
@@ -50,7 +50,7 @@ function editTask(id, newTitle) {
 function removeTask(id) {
     tasks = tasks.filter(task => task.id !== id);
     // TODO: Call the renderTasks() method to update the app
-
+    renderTasks();
 }
 
 // Function: Toggle Task Completion
@@ -59,7 +59,7 @@ function toggleTaskCompletion(id) {
     if (task) {
         task.completed = !task.completed;
         // TODO: Call the renderTasks() method to update the app
-
+        renderTasks();
     }
 }
 
@@ -74,7 +74,7 @@ function renderTasks(filter = 'all') {
         filteredTasks = tasks.filter(task => task.completed);
     } else if (filter === 'pending') {
         // TODO: filter pending tasks
-
+        filteredTasks = tasks.filter(task => !task.completed);
     }
 
     filteredTasks.forEach(task => {
@@ -113,7 +113,7 @@ function renderTasks(filter = 'all') {
         // Add Edit button to the task item
         taskItem.appendChild(editButton);
         // TODO: Add Remove button to the task item
-
+        taskItem.appendChild(removeButton);
         // TODO: Add event listener to task item for completion
 
         // Update taskList item in UI
