@@ -112,10 +112,13 @@ function renderTasks(filter = 'all') {
 
         // Add Edit button to the task item
         taskItem.appendChild(editButton);
+        
         // TODO: Add Remove button to the task item
         taskItem.appendChild(removeButton);
+        
         // TODO: Add event listener to task item for completion
-
+        taskItem.addEventListener('click',() => toggleTaskCompletion(task.id));
+        
         // Update taskList item in UI
         taskList.appendChild(taskItem);
     });
