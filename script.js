@@ -13,7 +13,7 @@ document.getElementById('addTaskForm').addEventListener('submit', function (even
 
     // Add code to add a new task
     // TODO: retrieve the task title from the form input field
-    const taskTitle = documents.getElementById('taskTitle').value;
+    const taskTitle = document.getElementById('taskTitle').value;
 
     if (taskTitle.trim() !== '') {
         // TODO: Add new task. HINT: Pass the task title from the form to the addTask() method.
